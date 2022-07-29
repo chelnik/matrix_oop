@@ -1,5 +1,5 @@
 #include "example.h"
-
+#include <cstring>
 S21Matrix::S21Matrix() {
     _rows = 3;
     _cols = 3;
