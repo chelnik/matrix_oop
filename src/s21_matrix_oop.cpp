@@ -1,6 +1,6 @@
 #include "s21_matrix_oop.h"
 
-using namespace std;
+// using namespace std;
 void test();
 void high_test_for_determinant();
 void high_test_for_calcomplements();
@@ -13,25 +13,6 @@ void high_test_for_inverse_matrix();
 //     high_test_for_calcomplements();
 //     return 0;
 // }
-void high_test_for_determinant() {
-    S21Matrix sarah(4, 4);
-    sarah.placeholder();
-    printf("\n%lf", sarah.determinant());
-    sarah.printer();
-}
-void high_test_for_calcomplements() {
-    S21Matrix sarah(4, 4);
-    sarah.placeholder();
-    sarah = sarah.calc_complements();
-    sarah.printer();
-}
-void high_test_for_inverse_matrix() {
-    S21Matrix sarah(4, 4);
-    sarah.placeholder_for_inverse();
-    sarah.printer();
-    sarah = sarah.inverse_matrix();
-    sarah.printer();
-}
 
 // Базовый конструктор
 S21Matrix::S21Matrix() {
@@ -78,7 +59,7 @@ S21Matrix::S21Matrix(const S21Matrix &other)
     }
 }
 
-//  Конструктор переноса (копия с удалением)
+// сломан
 // S21Matrix::S21Matrix(S21Matrix &&other) {
 //     this->rows_ = other.rows_;
 //     this->cols_ = other.cols_;
@@ -98,6 +79,7 @@ S21Matrix::S21Matrix(const S21Matrix &other)
 //     }
 //     delete this->matrix_;
 // }
+//  Конструктор переноса (копия с удалением)
 S21Matrix::S21Matrix(S21Matrix &&other) {
     this->rows_ = other.rows_;
     this->cols_ = other.cols_;
@@ -477,3 +459,42 @@ S21Matrix S21Matrix::inverse_matrix() {
     return tmp;
 }
 
+// index operator overload
+int S21Matrix::operator()(int i, int j) {
+    try {
+        if (i >= rows_ || j >= cols_ || i < 0 || j < 0) {
+            throw std::out_of_range("Incorrect input, index is out of range");
+        }
+    } catch (const exception &err) {
+        cout << err.what() << endl;
+    }
+    return this->matrix_[i][j];
+}
+
+int S21Matrix::get_row() { return this->rows_; }
+int S21Matrix::get_col() { return this->cols_; }
+
+// void S21Matrix::set_row(int row) {
+//     if (row < 0) {
+//         throw exception();
+//     } else {
+//         S21Matrix result(row, this->cols_);
+//         for (int i = 0; i < row; i++) {
+//             for (int j = 0; j < result.cols_; j++) {
+//                 = this->matrix_[i][j];
+//             }
+//         }
+        
+//         // this->~S21Matrix();
+//         // this->rows_ = 3;
+//         // this->cols_ = 3;
+//         // this->matrix_ = new double *[rows_];
+//         // for (int i = 0; i < rows_; i++) {
+//         //     this->matrix_[i] = new double[cols_];
+//         // }
+//         S21Matrix result(i, this->cols_);
+//     }
+// }
+// void S21Matrix::set_col(int j) {}
+// void set_num()
+// void get_num()

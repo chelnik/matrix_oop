@@ -6,9 +6,9 @@
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
-#include <stdexcept>
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <stdexcept>
 // для арифметики
 #define OK 0
 #define INCORRECT_MATRIX 1
@@ -56,9 +56,15 @@ class S21Matrix {
     S21Matrix operator*(const S21Matrix& o);
     S21Matrix& operator*=(const S21Matrix& o);
     bool operator==(const S21Matrix& o);
-    S21Matrix& operator=(const S21Matrix &o);
-    // (int i, int j)
+    S21Matrix& operator=(const S21Matrix& o);
+    int get_row();
+    int get_col();
+    void set_row(int i);
+    void set_col(int j);
+    // index operator overload
+    int operator()(int i, int j);
 
+    // (int i, int j)
 };
 // class myexception : public std::exception{
 //     public:

@@ -14,18 +14,10 @@ FLAGS_TEST_LIBS = -lgtest
 all: 
 # $(NAME)
 
-# test:
-# 	@make clean
-# 	$(CC) -g $(CFLAGS) $(SRC) && ./a.out
-# 	@make clean
 test:
 	@make clean
 	$(CC) -g $(CFLAGS) $(NAME_TEST) $(SRC) $(FLAGS_TEST_LIBS) && ./a.out
 	@make clean
-# test c:
-# 	@make clean
-# 	clang -g $(CFLAGS) $(SRC) && ./a.out
-# 	@make clean
 
 clean:
 	@rm -rf *.o *.so *.gcda *.gcno *.gch rep.info *.html *.css report *.txt *.info *.dSYM *.out
@@ -40,6 +32,8 @@ lint:
 	@python3 ./../materials/linters/cpplint.py --extensions=cpp *.cpp *.h
 	@rm -f CPPLINT.cfg
 
+gc:
+	make gcov_report
 gcov_report: all
 	$(CC) $(CFLAGS) --coverage $(NAME_TEST) $(SRC) $(FLAGS_TEST_LIBS) -o gcov_test
 	chmod +x *
