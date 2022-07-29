@@ -28,14 +28,20 @@ class S21Matrix {
    public:
     S21Matrix();  // Default constructor
     S21Matrix(int rows_, int cols_);  //  Параметризированный конструктор
-                                      //  количеством строк и столбцов
+                                      //  c количеством строк и столбцов
     S21Matrix(const S21Matrix& other);  //  Конструктор копирования
     S21Matrix(S21Matrix&& other);  //  Конструктор переноса (копия с удалением)
     ~S21Matrix();  // Destructor
 
     void printer();
     void placeholder();
+    void placeholder_for_determinant();
     void placeholder_for_inverse();
+    void memory_allocation();
+    void destroy_matrix();
+    void copy_matrix(const S21Matrix& other);
+    void set_num(int i, int j, double num);
+
     bool eq_matrix(const S21Matrix& other);
     void sum_matrix(const S21Matrix& other);
     void sub_matrix(const S21Matrix& other);
@@ -47,8 +53,6 @@ class S21Matrix {
     S21Matrix inverse_matrix();
     void minor_matrix(S21Matrix& result, int row, int column);
 
-    void copy_matrix(const S21Matrix& other);
-
     S21Matrix operator+(const S21Matrix& o);
     S21Matrix& operator+=(const S21Matrix& o);
     S21Matrix operator-(const S21Matrix& o);
@@ -57,22 +61,12 @@ class S21Matrix {
     S21Matrix& operator*=(const S21Matrix& o);
     bool operator==(const S21Matrix& o);
     S21Matrix& operator=(const S21Matrix& o);
-    int get_row();
-    int get_col();
-    void set_row(int i);
-    void set_col(int j);
-    // index operator overload
-    int operator()(int i, int j);
 
-    // (int i, int j)
+    int operator()(int i, int j);  // index operator overload
+    int get_rows();
+    int get_cols();
+    void set_rows(int row);
+    void set_cols(int col);
 };
-// class myexception : public std::exception{
-//     public:
-//     myexception(char *msg):std::exception(msg)
-//     {
-
-//     }
-//     private:
-// };
 
 #endif  // SRC_S21_MATRIX_OOP_H_

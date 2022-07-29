@@ -68,3 +68,36 @@ int& CMatrix::operator()(int row, int col) {
     }
     return _p[row * _cols + col];
 }
+
+
+/**
+ * @brief Умножение двух матриц
+ */
+void S21Matrix::mul_matrix(const S21Matrix &other) {
+    double sum = 0;
+    try {
+        if (other.rows_ >= 1 && other.cols_ >= 1 && this->rows_ >= 1 &&
+            this->cols_ >= 1) {
+            if (this->rows_ == other.cols_ && this->cols_ == other.rows_) {
+//                double result[rows_][other.cols_];
+                for (int i = 0; i < this->rows_; i++) {
+                    for (int j = 0; j < this->cols_; j++) {
+                        for (int k = 0; k < this->cols_; k++) {
+                            int a = this->matrix_[i][k];
+                            int b = other.matrix_[k][j];
+                            sum += this->matrix_[i][k] * other.matrix_[k][j];
+                        }
+                        this->matrix_[i][j] = sum;
+                        sum = 0;
+                    }
+                }
+            } else {
+                throw exception();
+            }
+        } else {
+            throw exception();
+        }
+    } catch (const exception &err) {
+        cout << err.what() << endl;
+    }
+}

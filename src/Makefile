@@ -1,6 +1,6 @@
 NAME	=	s21_matrix_oop.a
 
-SRC = s21_matrix_oop.cpp
+SRC = s21_matrix_oop.cpp operators.cpp support.cpp
 
 NAME_TEST = tests.cpp
 

@@ -79,6 +79,20 @@ build CMakeFiles/CPP1_s21_matrixplus_0.dir/src/s21_matrix_oop.cpp.o: CXX_COMPILE
   OBJECT_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir
   OBJECT_FILE_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir/src
 
+build CMakeFiles/CPP1_s21_matrixplus_0.dir/src/support.cpp.o: CXX_COMPILER__CPP1_s21_matrixplus_0_Debug /Users/corkiudy/CPP1_s21_matrixplus-0/src/support.cpp || cmake_object_order_depends_target_CPP1_s21_matrixplus_0
+  DEP_FILE = CMakeFiles/CPP1_s21_matrixplus_0.dir/src/support.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu++14
+  INCLUDES = -I/Users/corkiudy/CPP1_s21_matrixplus-0/src
+  OBJECT_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir
+  OBJECT_FILE_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir/src
+
+build CMakeFiles/CPP1_s21_matrixplus_0.dir/src/operators.cpp.o: CXX_COMPILER__CPP1_s21_matrixplus_0_Debug /Users/corkiudy/CPP1_s21_matrixplus-0/src/operators.cpp || cmake_object_order_depends_target_CPP1_s21_matrixplus_0
+  DEP_FILE = CMakeFiles/CPP1_s21_matrixplus_0.dir/src/operators.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu++14
+  INCLUDES = -I/Users/corkiudy/CPP1_s21_matrixplus-0/src
+  OBJECT_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir
+  OBJECT_FILE_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CPP1_s21_matrixplus_0
@@ -87,7 +101,7 @@ build CMakeFiles/CPP1_s21_matrixplus_0.dir/src/s21_matrix_oop.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable CPP1_s21_matrixplus_0
 
-build CPP1_s21_matrixplus_0: CXX_EXECUTABLE_LINKER__CPP1_s21_matrixplus_0_Debug CMakeFiles/CPP1_s21_matrixplus_0.dir/src/s21_matrix_oop.cpp.o
+build CPP1_s21_matrixplus_0: CXX_EXECUTABLE_LINKER__CPP1_s21_matrixplus_0_Debug CMakeFiles/CPP1_s21_matrixplus_0.dir/src/s21_matrix_oop.cpp.o CMakeFiles/CPP1_s21_matrixplus_0.dir/src/support.cpp.o CMakeFiles/CPP1_s21_matrixplus_0.dir/src/operators.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
   OBJECT_DIR = CMakeFiles/CPP1_s21_matrixplus_0.dir
   POST_BUILD = :
