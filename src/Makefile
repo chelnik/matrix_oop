@@ -48,9 +48,9 @@ gcov_report: all
 	genhtml -o report/ gcov_test.info
 	open ./report/index.html
 
-check: $(NAME)
-	@echo ---------------------CPPCHECK---------------------
-	cppcheck *.h $(SRC)
+# check: $(NAME)
+# 	@echo ---------------------CPPCHECK---------------------
+# 	cppcheck *.h $(SRC)
 
 leak:
 	@make clean
