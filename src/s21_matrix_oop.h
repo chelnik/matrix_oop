@@ -20,12 +20,12 @@
 // using namespace std;
 
 class S21Matrix {
-   private:
+ private:
     // Attributes
     int rows_, cols_;  // Rows and columns
     double** matrix_;  // Pointer to the memory where the matrix is allocated
 
-   public:
+ public:
     S21Matrix();  // Default constructor
     S21Matrix(int rows_, int cols_);  //  Параметризированный конструктор
                                       //  c количеством строк и столбцов
@@ -51,6 +51,7 @@ class S21Matrix {
     S21Matrix calc_complements();
     double determinant();
     S21Matrix inverse_matrix();
+
     void minor_matrix(S21Matrix& result, int row, int column);
 
     S21Matrix operator+(const S21Matrix& o);

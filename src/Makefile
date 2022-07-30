@@ -51,11 +51,8 @@ gcov_report: all
 check: $(NAME)
 	@echo ---------------------CPPCHECK---------------------
 	cppcheck *.h $(SRC)
-	@echo -------------------MEMORY_LEAKS-------------------
-	$(CC) -g $(NAME_TEST) $(NAME) $(FLAGS_TEST_LIBS) -o unit.out
-	CK_FORK=no leaks --atExit -- ./unit.out
 
-l:
+leak:
 	@make clean
 	$(CC) -g $(CFLAGS) $(NAME_TEST) $(SRC) $(FLAGS_TEST_LIBS) && ./a.out
 	CK_FORK=no leaks --atExit -- ./a.out

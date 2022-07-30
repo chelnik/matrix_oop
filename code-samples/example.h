@@ -30,5 +30,7 @@ class S21Matrix {
     void sum_matrix(const S21Matrix& o);
     void sub_matrix(const S21Matrix& o);
 };
+// Is this a non-const reference
+// in lint 
 
 #endif

@@ -22,7 +22,7 @@ void S21Matrix::placeholder_for_determinant() {
             }
         }
     }
-    if (rows_ >= 2 && cols_>=2){
+    if (rows_ >= 2 && cols_ >= 2) {
         this->matrix_[1][1] = 66;
         this->matrix_[2][2] = 119;
     }

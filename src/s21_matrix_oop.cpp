@@ -1,14 +1,5 @@
 #include "s21_matrix_oop.h"
 
-// using namespace std;
-// int main() {
-//     S21Matrix matrix1(2, 2);
-//     matrix1.placeholder();
-//     matrix1.printer();
-//     matrix1.mul_matrix(matrix1); //= matrix1 * matrix1;
-//     matrix1.printer();
-// }
-
 // Базовый конструктор
 S21Matrix::S21Matrix() {
     this->rows_ = 3;
@@ -31,6 +22,8 @@ S21Matrix::S21Matrix(int rows_, int cols_) {
             }
 
         } else {
+            this->rows_ = 0;
+            this->cols_ = 0;
             this->matrix_ = nullptr;
             throw std::exception();
         }
@@ -43,7 +36,7 @@ S21Matrix::S21Matrix(int rows_, int cols_) {
 // Здесь использую пример инициализации значений(это вызов базового конструктора
 // внутри нашего конструктура)
 S21Matrix::S21Matrix(const S21Matrix &other)
-        : rows_(other.rows_), cols_(other.cols_) {
+    : rows_(other.rows_), cols_(other.cols_) {
     this->matrix_ = new double *[rows_]();
     for (int i = 0; i < rows_; i++) {
         this->matrix_[i] = new double[cols_]();
@@ -90,7 +83,6 @@ void S21Matrix::printer() {
     printf("\n");
 }
 
-
 void S21Matrix::sum_matrix(const S21Matrix &other) {
     try {
         if (other.matrix_ && this->rows_ >= 1 && this->cols_ >= 1) {
@@ -98,7 +90,7 @@ void S21Matrix::sum_matrix(const S21Matrix &other) {
                 for (int i = 0; i < this->rows_; i++) {
                     for (int j = 0; j < this->cols_; j++) {
                         this->matrix_[i][j] =
-                                this->matrix_[i][j] + other.matrix_[i][j];
+                            this->matrix_[i][j] + other.matrix_[i][j];
                     }
                 }
             } else {
@@ -128,7 +120,7 @@ void S21Matrix::sub_matrix(const S21Matrix &other) {
                 for (int i = 0; i < this->rows_; i++) {
                     for (int j = 0; j < this->cols_; j++) {
                         this->matrix_[i][j] =
-                                this->matrix_[i][j] - other.matrix_[i][j];
+                            this->matrix_[i][j] - other.matrix_[i][j];
                     }
                 }
             } else {
@@ -172,8 +164,9 @@ void S21Matrix::mul_matrix(const S21Matrix &other) {
                     for (int j = 0; j < this->cols_; j++) {
                         result[i][j] = 0;
                         for (int k = 0; k < this->cols_; k++) {
-// Проблема была в случае умножения самого на себя 
-                            result[i][j] += this->matrix_[i][k] * other.matrix_[k][j];
+                            // Проблема была в случае умножения самого на себя
+                            result[i][j] +=
+                                this->matrix_[i][k] * other.matrix_[k][j];
                         }
                     }
                 }
@@ -192,7 +185,6 @@ void S21Matrix::mul_matrix(const S21Matrix &other) {
         std::cout << err.what() << std::endl;
     }
 }
-
 
 void S21Matrix::copy_matrix(const S21Matrix &other) {
     this->rows_ = other.rows_;
@@ -220,7 +212,7 @@ void S21Matrix::copy_matrix(const S21Matrix &other) {
  */
 S21Matrix S21Matrix::transpose() {
     // int flag = OK;
-    S21Matrix result((S21Matrix &) *this);
+    S21Matrix result((S21Matrix &)*this);
     try {
         if (this->rows_ >= 1 && this->cols_ >= 1) {
             // s21_create_matrix(this->cols_, this->rows_, result);
@@ -259,7 +251,7 @@ double S21Matrix::determinant() {
                         minor_matrix(matrix_minor, 0, j);
                         result = matrix_minor.determinant();
                         determinant +=
-                                this->matrix_[0][j] * pow(-1, j) * result;
+                            this->matrix_[0][j] * pow(-1, j) * result;
                     }
                     result = determinant;
                 }
@@ -279,7 +271,7 @@ double S21Matrix::determinant() {
 // /**
 //  * @brief Находит минор матрицы
 //  */
-void S21Matrix::minor_matrix(S21Matrix &result, int row, int column) {
+void S21Matrix::minor_matrix(S21Matrix& result, int row, int column) {
     for (int i = 0, new_i = 0; i < this->rows_; i++) {
         if (i == row) continue;
         for (int j = 0, new_j = 0; j < this->cols_; j++) {
@@ -363,4 +355,3 @@ int S21Matrix::operator()(int i, int j) {
     }
     return this->matrix_[i][j];
 }
-
