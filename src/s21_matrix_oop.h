@@ -17,7 +17,7 @@
 #define SUCCESS 1
 #define FAILURE 0
 #define EPS 1e-7
-using namespace std;
+// using namespace std;
 
 class S21Matrix {
    private:

@@ -35,7 +35,7 @@ S21Matrix::S21Matrix(int rows_, int cols_) {
             throw std::exception();
         }
     } catch (const std::exception &err) {
-        cout << err.what() << endl;
+        std::cout << err.what() << std::endl;
     }
 }
 
@@ -102,13 +102,13 @@ void S21Matrix::sum_matrix(const S21Matrix &other) {
                     }
                 }
             } else {
-                throw exception();
+                throw std::exception();
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 }
 
@@ -133,14 +133,14 @@ void S21Matrix::sub_matrix(const S21Matrix &other) {
                 }
             } else {
                 // flag = CALCULATION_ERROR;
-                throw exception();
+                throw std::exception();
             }
         } else {
             // flag = INCORRECT_MATRIX;
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 }
 
@@ -155,7 +155,7 @@ void S21Matrix::mul_number(const double num) {
             }
         }
     } else {
-        throw exception();
+        throw std::exception();
     }
 }
 
@@ -183,13 +183,13 @@ void S21Matrix::mul_matrix(const S21Matrix &other) {
                     }
                 }
             } else {
-                throw exception();
+                throw std::exception();
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 }
 
@@ -230,10 +230,10 @@ S21Matrix S21Matrix::transpose() {
                 }
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 
     return *this;
@@ -264,13 +264,13 @@ double S21Matrix::determinant() {
                     result = determinant;
                 }
             } else {
-                throw exception();
+                throw std::exception();
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 
     return result;
@@ -311,13 +311,13 @@ S21Matrix S21Matrix::calc_complements() {
                     }
                 }
             } else {
-                throw exception();
+                throw std::exception();
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 
     return result;
@@ -333,20 +333,20 @@ S21Matrix S21Matrix::inverse_matrix() {
             if (this->rows_ == this->cols_) {
                 double determinant = this->determinant();
                 if (fabs(determinant) <= EPS) {
-                    throw exception();
+                    throw std::exception();
                 } else {
                     tmp = this->calc_complements();
                     tmp = tmp.transpose();
                     tmp.mul_number(1. / determinant);
                 }
             } else {
-                throw exception();
+                throw std::exception();
             }
         } else {
-            throw exception();
+            throw std::exception();
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
 
     return tmp;
@@ -358,8 +358,8 @@ int S21Matrix::operator()(int i, int j) {
         if (i >= rows_ || j >= cols_ || i < 0 || j < 0) {
             throw std::out_of_range("Incorrect input, index is out of range");
         }
-    } catch (const exception &err) {
-        cout << err.what() << endl;
+    } catch (const std::exception &err) {
+        std::cout << err.what() << std::endl;
     }
     return this->matrix_[i][j];
 }

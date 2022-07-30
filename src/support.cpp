@@ -44,7 +44,7 @@ int S21Matrix::get_cols() { return this->cols_; }
 
 void S21Matrix::set_rows(int row) {
     if (row <= 0) {
-        throw exception();
+        throw std::exception();
     } else {
         S21Matrix copy(*this);
         this->destroy_matrix();
@@ -62,7 +62,7 @@ void S21Matrix::set_rows(int row) {
 
 void S21Matrix::set_cols(int col) {
     if (col <= 0) {
-        throw exception();
+        throw std::exception();
     } else {
         S21Matrix copy(*this);
         this->destroy_matrix();
