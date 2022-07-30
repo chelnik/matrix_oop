@@ -55,12 +55,13 @@ S21Matrix::S21Matrix(S21Matrix &&other) {
 }
 
 S21Matrix::~S21Matrix() {
-    if (this->matrix_) {
-        for (int i = 0; i < this->rows_; i++) {
-            delete this->matrix_[i];
-        }
-        delete this->matrix_;
-    }
+    // if (this->matrix_) {
+    //     for (int i = 0; i < this->rows_; i++) {
+    //         delete this->matrix_[i];
+    //     }
+    //     delete this->matrix_;
+    // }
+    this->destroy_matrix();
 }
 
 /**

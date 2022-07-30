@@ -94,6 +94,7 @@ void S21Matrix::destroy_matrix() {
             delete this->matrix_[i];
         }
         delete this->matrix_;
+        this->matrix_ = 0;
     }
 }
 

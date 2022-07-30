@@ -263,6 +263,9 @@ TEST(test_operators_new, test8) {
     matrix1 -= matrix1;
     matrix1.printer();
 }
+TEST(test_destroy, test8) {
+    S21Matrix matrix1(2, 2);
+}
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

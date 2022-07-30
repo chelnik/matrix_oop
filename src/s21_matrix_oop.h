@@ -20,6 +20,11 @@ class S21Matrix {
     int rows_, cols_;  // Rows and columns
     double** matrix_;  // Pointer to the memory where the matrix is allocated
 
+    void memory_allocation();
+    void destroy_matrix();
+    void copy_matrix(const S21Matrix& other);
+    
+
  public:
     S21Matrix();  // Default constructor
     S21Matrix(int rows_, int cols_);  //  Параметризированный конструктор
@@ -32,9 +37,6 @@ class S21Matrix {
     void placeholder();
     void placeholder_for_determinant();
     void placeholder_for_inverse();
-    void memory_allocation();
-    void destroy_matrix();
-    void copy_matrix(const S21Matrix& other);
     void set_num(int i, int j, double num);
 
     bool eq_matrix(const S21Matrix& other);
