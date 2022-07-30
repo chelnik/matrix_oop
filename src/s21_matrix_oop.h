@@ -1,11 +1,6 @@
 #ifndef SRC_S21_MATRIX_OOP_H_
 #define SRC_S21_MATRIX_OOP_H_
 
-// #include <limits.h>
-// #include <math.h>
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
@@ -17,7 +12,7 @@
 #define SUCCESS 1
 #define FAILURE 0
 #define EPS 1e-7
-// using namespace std;
+
 
 class S21Matrix {
  private:

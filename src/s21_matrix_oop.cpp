@@ -12,7 +12,6 @@ S21Matrix::S21Matrix() {
 
 //  Параметризированный конструктор
 S21Matrix::S21Matrix(int rows_, int cols_) {
-    try {
         if (rows_ >= 1 && cols_ >= 1) {
             this->rows_ = rows_;
             this->cols_ = cols_;
@@ -27,9 +26,6 @@ S21Matrix::S21Matrix(int rows_, int cols_) {
             this->matrix_ = nullptr;
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 }
 
 //  Конструктор копирования
@@ -84,7 +80,6 @@ void S21Matrix::printer() {
 }
 
 void S21Matrix::sum_matrix(const S21Matrix &other) {
-    try {
         if (other.matrix_ && this->rows_ >= 1 && this->cols_ >= 1) {
             if (this->rows_ == other.rows_ && this->cols_ == other.cols_) {
                 for (int i = 0; i < this->rows_; i++) {
@@ -99,9 +94,6 @@ void S21Matrix::sum_matrix(const S21Matrix &other) {
         } else {
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 }
 
 /**
@@ -113,7 +105,6 @@ void S21Matrix::sum_matrix(const S21Matrix &other) {
  *     нельзя провести вычисления и т.д.)
  */
 void S21Matrix::sub_matrix(const S21Matrix &other) {
-    try {
         if (other.matrix_ && this->rows_ >= 1 && this->cols_ >= 1) {
             if (this->rows_ == other.rows_ && this->cols_ == other.cols_) {
                 //  S21Matrix s = new S21Matrix(rows_,cols_);
@@ -131,9 +122,6 @@ void S21Matrix::sub_matrix(const S21Matrix &other) {
             // flag = INCORRECT_MATRIX;
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 }
 
 /**
@@ -155,7 +143,6 @@ void S21Matrix::mul_number(const double num) {
  * @brief Умножение двух матриц
  */
 void S21Matrix::mul_matrix(const S21Matrix &other) {
-    try {
         if (other.rows_ >= 1 && other.cols_ >= 1 && this->rows_ >= 1 &&
             this->cols_ >= 1) {
             if (this->rows_ == other.cols_ && this->cols_ == other.rows_) {
@@ -181,9 +168,6 @@ void S21Matrix::mul_matrix(const S21Matrix &other) {
         } else {
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 }
 
 void S21Matrix::copy_matrix(const S21Matrix &other) {
@@ -213,7 +197,6 @@ void S21Matrix::copy_matrix(const S21Matrix &other) {
 S21Matrix S21Matrix::transpose() {
     // int flag = OK;
     S21Matrix result((S21Matrix &)*this);
-    try {
         if (this->rows_ >= 1 && this->cols_ >= 1) {
             // s21_create_matrix(this->cols_, this->rows_, result);
             for (int i = 0; i < this->rows_; i++) {
@@ -224,9 +207,6 @@ S21Matrix S21Matrix::transpose() {
         } else {
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 
     return *this;
 }
@@ -236,7 +216,6 @@ S21Matrix S21Matrix::transpose() {
 //  */
 double S21Matrix::determinant() {
     double result = 0;
-    try {
         if (this->rows_ >= 1 && this->cols_ >= 1) {
             if (this->rows_ == this->cols_) {
                 if (this->rows_ == 1) {
@@ -261,9 +240,6 @@ double S21Matrix::determinant() {
         } else {
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
 
     return result;
 }
@@ -289,7 +265,6 @@ void S21Matrix::minor_matrix(S21Matrix& result, int row, int column) {
  */
 S21Matrix S21Matrix::calc_complements() {
     S21Matrix result(this->cols_, this->rows_);
-    try {
         if (this->rows_ >= 1 && this->cols_ >= 1) {
             if (this->rows_ == this->cols_) {
                 for (int i = 0; i < this->rows_; i++) {
@@ -308,10 +283,6 @@ S21Matrix S21Matrix::calc_complements() {
         } else {
             throw std::exception();
         }
-    } catch (const std::exception &err) {
-        std::cout << err.what() << std::endl;
-    }
-
     return result;
 }
 
