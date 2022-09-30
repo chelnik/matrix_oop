@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-
+// how install gtest
+// https://alexanderbussan.medium.com/getting-started-with-google-test-on-os-x-a07eee7ae6dc
 #include "s21_matrix_oop.h"
 // using namespace std;
 // #include <gtest/gtest.h>
@@ -40,12 +41,12 @@ TEST(test_transpose, test1) {
     // EXPECT_EQ(matrix1.eq_matrix(matrix2), 1);
 }
 
-TEST(test_base, test1) { S21Matrix sarah(); }
+// TEST(test_base, test1) { S21Matrix sarah(); }
 
 TEST(test_transportin, test1) {
-    S21Matrix bob();
+    // S21Matrix bob();
 
-    S21Matrix sarah();
+    // S21Matrix sarah();
 }
 
 TEST(test_simple_tests, test1) {
@@ -86,7 +87,6 @@ TEST(test_another_simple_tests, test1) {
     bob = bob + margaret + margaret;
     bob.printer();
 }
-
 
 TEST(test_determinant, test1) {
     S21Matrix sarah(3, 3);
@@ -260,12 +260,10 @@ TEST(test_operators_new, test8) {
     matrix1.printer();
     matrix1 *= matrix1 * matrix1;
     matrix1 += matrix1 - matrix1;
-    matrix1 -= matrix1;
+    // matrix1 -= matrix1;
     matrix1.printer();
 }
-TEST(test_destroy, test8) {
-    S21Matrix matrix1(2, 2);
-}
+TEST(test_destroy, test8) { S21Matrix matrix1(2, 2); }
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

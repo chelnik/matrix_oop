@@ -13,9 +13,8 @@
 #define FAILURE 0
 #define EPS 1e-7
 
-
 class S21Matrix {
- private:
+   private:
     // Attributes
     int rows_, cols_;  // Rows and columns
     double** matrix_;  // Pointer to the memory where the matrix is allocated
@@ -23,9 +22,8 @@ class S21Matrix {
     void memory_allocation();
     void destroy_matrix();
     void copy_matrix(const S21Matrix& other);
-    
 
- public:
+   public:
     S21Matrix();  // Default constructor
     S21Matrix(int rows_, int cols_);  //  Параметризированный конструктор
                                       //  c количеством строк и столбцов
